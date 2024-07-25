@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.555">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sawyer Phinney">
+
+<title>Economy &amp; Labour Market</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="EconomyDashboard_files/libs/clipboard/clipboard.min.js"></script>
+<script src="EconomyDashboard_files/libs/quarto-html/quarto.js"></script>
+<script src="EconomyDashboard_files/libs/quarto-html/popper.min.js"></script>
+<script src="EconomyDashboard_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="EconomyDashboard_files/libs/quarto-html/anchor.min.js"></script>
+<link href="EconomyDashboard_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="EconomyDashboard_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="EconomyDashboard_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="EconomyDashboard_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="EconomyDashboard_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="EconomyDashboard_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="EconomyDashboard_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="EconomyDashboard_files/libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="EconomyDashboard_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="EconomyDashboard_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="EconomyDashboard_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="EconomyDashboard_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="EconomyDashboard_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="EconomyDashboard_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+<link href="EconomyDashboard_files/libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+
+<link href="EconomyDashboard_files/libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-economy" id="toc-the-economy" class="nav-link active" data-scroll-target="#the-economy"><span class="header-section-number">1</span> The Economy</a></li>
+  <li><a href="#labour-market-update" id="toc-labour-market-update" class="nav-link" data-scroll-target="#labour-market-update"><span class="header-section-number">2</span> Labour Market Update</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Economy &amp; Labour Market</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sawyer Phinney </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24/07/2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><br></p>
+<div class="logo">
+<p><img src="LCR_map.jpg" class="img-fluid"></p>
+</div>
+<section id="the-economy" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> The Economy</h1>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-2d8f7c01805d4d9c3261" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2d8f7c01805d4d9c3261">{"x":{"visdat":{"730c7e4245da":["function () ","plotlyVisDat"]},"cur_data":"730c7e4245da","attrs":{"730c7e4245da":{"x":{},"y":{},"mode":"lines","line":{"width":5,"color":"lightblue"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"title":{"text":"Total Number of Businesses in Liverpool City Region, 2010-2022","font":{"color":"darkgrey","family":"Arial"},"showlegend":false,"autosize":true,"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023"],"y":[31360,30635,31450,31615,33715,37520,39215,41695,42470,42615,43160,44120,43615,42895],"mode":"lines","line":{"color":"lightblue","width":5},"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>As of March 2023, there was estimated to be around <strong>43,615</strong> registered businesses in LCR. This represents a decrease by <strong>-1.1</strong>% <i class="fas fa-circle-arrow-down fa-1x text-danger" role="presentation" aria-label="circle-arrow-down icon" color="#FF0000"></i> from the previous year. Compared with the previous decade, this figure was up by 28% or 11,700.</p>
+<p>Knowsley saw the largest increase in businesses during this period (+37%) and the lowest being in Sefton (+18%). However, all local authorities experienced a significant increase in the number of businesses.</p>
+<p>The profile of businesses by size is slightly different than the national picture. There are less micro-sized businesses in LCR, and more medium and large-sized businesses than the England average. Small and medium-sized enterprises account for 99.4% of businesses. Medium and large-sized businesses are more prevalent in LCR than across England. .</p>
+</div>
+<p><br> <br> <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-ef137147cd7c4b3777bf" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-ef137147cd7c4b3777bf">{"x":{"visdat":{"730c7abc51c8":["function () ","plotlyVisDat"]},"cur_data":"730c7abc51c8","attrs":{"730c7abc51c8":{"x":{},"y":{},"mode":"lines","line":{"width":5},"split":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Number of Businesses in Liverpool City Region by Industry<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[285,290,300,305,320,325,330,315,310,310,315,295,300,300],"mode":"lines","line":{"color":"rgba(31,119,180,1)","width":5},"type":"scatter","name":"1 : Agriculture, forestry & fishing (A)","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[1590,1575,1670,1730,1900,2035,2180,2295,2285,2330,2365,2330,2150,2080],"mode":"lines","line":{"color":"rgba(255,127,14,1)","width":5},"type":"scatter","name":"10 : Information & communication (J)","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[625,635,650,670,735,825,830,835,875,910,935,835,750,715],"mode":"lines","line":{"color":"rgba(44,160,44,1)","width":5},"type":"scatter","name":"11 : Financial & insurance (K)","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[1205,1140,1160,1180,1215,1310,1325,1360,1415,1475,1625,1670,1690,1710],"mode":"lines","line":{"color":"rgba(214,39,40,1)","width":5},"type":"scatter","name":"12 : Property (L)","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[4620,4605,4865,5135,5745,6540,7030,7275,6990,7075,6910,6645,6245,6075],"mode":"lines","line":{"color":"rgba(148,103,189,1)","width":5},"type":"scatter","name":"13 : Professional, scientific & technical (M)","marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"error_y":{"color":"rgba(148,103,189,1)"},"error_x":{"color":"rgba(148,103,189,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[2150,2035,2090,2050,2405,3355,3490,3975,4110,4055,4190,3900,3685,3590],"mode":"lines","line":{"color":"rgba(140,86,75,1)","width":5},"type":"scatter","name":"14 : Business administration & support services (N)","marker":{"color":"rgba(140,86,75,1)","line":{"color":"rgba(140,86,75,1)"}},"error_y":{"color":"rgba(140,86,75,1)"},"error_x":{"color":"rgba(140,86,75,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[20,20,25,25,30,30,40,35,35,35,40,35,40,35],"mode":"lines","line":{"color":"rgba(227,119,194,1)","width":5},"type":"scatter","name":"15 : Public administration & defence (O)","marker":{"color":"rgba(227,119,194,1)","line":{"color":"rgba(227,119,194,1)"}},"error_y":{"color":"rgba(227,119,194,1)"},"error_x":{"color":"rgba(227,119,194,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[585,590,615,635,670,715,740,815,815,825,845,875,885,920],"mode":"lines","line":{"color":"rgba(127,127,127,1)","width":5},"type":"scatter","name":"16 : Education (P)","marker":{"color":"rgba(127,127,127,1)","line":{"color":"rgba(127,127,127,1)"}},"error_y":{"color":"rgba(127,127,127,1)"},"error_x":{"color":"rgba(127,127,127,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[1705,1775,1870,1915,2000,2165,2275,2395,2130,2060,2080,2135,2125,2135],"mode":"lines","line":{"color":"rgba(188,189,34,1)","width":5},"type":"scatter","name":"17 : Health (Q)","marker":{"color":"rgba(188,189,34,1)","line":{"color":"rgba(188,189,34,1)"}},"error_y":{"color":"rgba(188,189,34,1)"},"error_x":{"color":"rgba(188,189,34,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[2385,2280,2425,2345,2490,2945,2970,2995,3085,3140,3185,3230,3325,3395],"mode":"lines","line":{"color":"rgba(23,190,207,1)","width":5},"type":"scatter","name":"18 : Arts, entertainment, recreation & other services (R,S,T and U)","marker":{"color":"rgba(23,190,207,1)","line":{"color":"rgba(23,190,207,1)"}},"error_y":{"color":"rgba(23,190,207,1)"},"error_x":{"color":"rgba(23,190,207,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[140,150,165,175,170,175,185,190,215,205,215,215,230,250],"mode":"lines","line":{"color":"rgba(31,119,180,1)","width":5},"type":"scatter","name":"2 : Mining, quarrying & utilities (B,D and E)","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[2125,2035,2075,2155,2165,2195,2275,2305,2335,2400,2390,2445,2435,2355],"mode":"lines","line":{"color":"rgba(255,127,14,1)","width":5},"type":"scatter","name":"3 : Manufacturing (C)","marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[4435,4125,4075,3950,4145,4420,4610,5095,5380,5280,5490,5640,6065,6140],"mode":"lines","line":{"color":"rgba(44,160,44,1)","width":5},"type":"scatter","name":"4 : Construction (F)","marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[1040,1050,1065,1060,1095,1180,1175,1180,1180,1155,1190,1190,1215,1255],"mode":"lines","line":{"color":"rgba(214,39,40,1)","width":5},"type":"scatter","name":"5 : Motor trades (Part G)","marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[1505,1480,1460,1455,1505,1475,1445,1445,1460,1450,1440,1485,1800,1655],"mode":"lines","line":{"color":"rgba(148,103,189,1)","width":5},"type":"scatter","name":"6 : Wholesale (Part G)","marker":{"color":"rgba(148,103,189,1)","line":{"color":"rgba(148,103,189,1)"}},"error_y":{"color":"rgba(148,103,189,1)"},"error_x":{"color":"rgba(148,103,189,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[3465,3485,3520,3420,3485,3470,3460,3535,4050,4230,3780,4540,4240,4085],"mode":"lines","line":{"color":"rgba(140,86,75,1)","width":5},"type":"scatter","name":"7 : Retail (Part G)","marker":{"color":"rgba(140,86,75,1)","line":{"color":"rgba(140,86,75,1)"}},"error_y":{"color":"rgba(140,86,75,1)"},"error_x":{"color":"rgba(140,86,75,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[1190,1150,1170,1185,1325,1650,2155,2845,2950,2620,2925,3300,2990,2730],"mode":"lines","line":{"color":"rgba(227,119,194,1)","width":5},"type":"scatter","name":"8 : Transport & storage (inc postal) (H)","marker":{"color":"rgba(227,119,194,1)","line":{"color":"rgba(227,119,194,1)"}},"error_y":{"color":"rgba(227,119,194,1)"},"error_x":{"color":"rgba(227,119,194,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],"y":[2290,2220,2250,2225,2310,2710,2720,2795,2850,3055,3245,3350,3445,3460],"mode":"lines","line":{"color":"rgba(127,127,127,1)","width":5},"type":"scatter","name":"9 : Accommodation & food services (I)","marker":{"color":"rgba(127,127,127,1)","line":{"color":"rgba(127,127,127,1)"}},"error_y":{"color":"rgba(127,127,127,1)"},"error_x":{"color":"rgba(127,127,127,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>In 2023, the <strong>13 : Professional, scientific &amp; technical (M)</strong> sector had the highest numbers of businesses in Liverpool City Region with <strong>6,245</strong> businesses in the city region.</p>
+<p>Since 2019, there has been a slight decrease in the number of businesses in scientific, technical &amp; professional services. However, it has remained the highest sector since 2010 in terms of number of firms.</p>
+</div>
+<p><br> <br> <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-8f7edeba4e7ac03fd929" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-8f7edeba4e7ac03fd929">{"x":{"visdat":{"730c27eb7561":["function () ","plotlyVisDat"]},"cur_data":"730c27eb7561","attrs":{"730c27eb7561":{"x":{},"y":{},"mode":"lines","line":{"color":"lightblue","width":5},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Real Gross Value Added (GVA) in LCR (in £ Millions)<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["1998","1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],"y":[246.70713201820939,257.10644677661168,265.61011904761904,273.59941944847606,281.0169491525424,294.72602739726028,301.07999999999998,304.254215304799,317.8140703517588,312.79556650246303,316.29761904761904,311.91733639494834,315.25773195876292,310.46223224351746,304.30648769574941,306.49122807017545,318.53420195439742,325.79849946409433,325.84905660377359,332.48704663212436,332.29273285568064,344.33999999999997,298.06715063520869,326.36195752539243],"mode":"lines","line":{"color":"lightblue","width":5},"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>Latest data shows the real GVA (adjusted for inflation) in Liverpool City Region was <strong>£32,636,196</strong>. This represents an increase of <strong>9.5%</strong> <i class="fas fa-circle-arrow-up fa-1x text-success" role="presentation" aria-label="circle-arrow-up icon" color="#008000"></i> from the previous year.</p>
+</div>
+<p><br> <br> <br></p>
+</section>
+<section id="labour-market-update" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Labour Market Update</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-562d5a4043a532f5058a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-562d5a4043a532f5058a">{"x":{"visdat":{"730c59843762":["function () ","plotlyVisDat"]},"cur_data":"730c59843762","attrs":{"730c59843762":{"x":{},"y":{},"mode":"lines","line":{"width":5},"color":{},"colors":["grey","lightblue"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["Jan 2004-Dec 2004","Apr 2004-Mar 2005","Jul 2004-Jun 2005","Oct 2004-Sep 2005","Jan 2005-Dec 2005","Apr 2005-Mar 2006","Jul 2005-Jun 2006","Oct 2005-Sep 2006","Jan 2006-Dec 2006","Apr 2006-Mar 2007","Jul 2006-Jun 2007","Oct 2006-Sep 2007","Jan 2007-Dec 2007","Apr 2007-Mar 2008","Jul 2007-Jun 2008","Oct 2007-Sep 2008","Jan 2008-Dec 2008","Apr 2008-Mar 2009","Jul 2008-Jun 2009","Oct 2008-Sep 2009","Jan 2009-Dec 2009","Apr 2009-Mar 2010","Jul 2009-Jun 2010","Oct 2009-Sep 2010","Jan 2010-Dec 2010","Apr 2010-Mar 2011","Jul 2010-Jun 2011","Oct 2010-Sep 2011","Jan 2011-Dec 2011","Apr 2011-Mar 2012","Jul 2011-Jun 2012","Oct 2011-Sep 2012","Jan 2012-Dec 2012","Apr 2012-Mar 2013","Jul 2012-Jun 2013","Oct 2012-Sep 2013","Jan 2013-Dec 2013","Apr 2013-Mar 2014","Jul 2013-Jun 2014","Oct 2013-Sep 2014","Jan 2014-Dec 2014","Apr 2014-Mar 2015","Jul 2014-Jun 2015","Oct 2014-Sep 2015","Jan 2015-Dec 2015","Apr 2015-Mar 2016","Jul 2015-Jun 2016","Oct 2015-Sep 2016","Jan 2016-Dec 2016","Apr 2016-Mar 2017","Jul 2016-Jun 2017","Oct 2016-Sep 2017","Jan 2017-Dec 2017","Apr 2017-Mar 2018","Jul 2017-Jun 2018","Oct 2017-Sep 2018","Jan 2018-Dec 2018","Apr 2018-Mar 2019","Jul 2018-Jun 2019","Oct 2018-Sep 2019","Jan 2019-Dec 2019","Apr 2019-Mar 2020","Jul 2019-Jun 2020","Oct 2019-Sep 2020","Jan 2020-Dec 2020","Apr 2020-Mar 2021","Jul 2020-Jun 2021","Oct 2020-Sep 2021","Jan 2021-Dec 2021","Apr 2021-Mar 2022","Jul 2021-Jun 2022","Oct 2021-Sep 2022","Jan 2022-Dec 2022","Apr 2022-Mar 2023","Jul 2022-Jun 2023","Oct 2022-Sep 2023","Jan 2023-Dec 2023","Apr 2023-Mar 2024"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Unemployment Rate (in %)<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Jan 2004-Dec 2004","Apr 2004-Mar 2005","Jul 2004-Jun 2005","Oct 2004-Sep 2005","Jan 2005-Dec 2005","Apr 2005-Mar 2006","Jul 2005-Jun 2006","Oct 2005-Sep 2006","Jan 2006-Dec 2006","Apr 2006-Mar 2007","Jul 2006-Jun 2007","Oct 2006-Sep 2007","Jan 2007-Dec 2007","Apr 2007-Mar 2008","Jul 2007-Jun 2008","Oct 2007-Sep 2008","Jan 2008-Dec 2008","Apr 2008-Mar 2009","Jul 2008-Jun 2009","Oct 2008-Sep 2009","Jan 2009-Dec 2009","Apr 2009-Mar 2010","Jul 2009-Jun 2010","Oct 2009-Sep 2010","Jan 2010-Dec 2010","Apr 2010-Mar 2011","Jul 2010-Jun 2011","Oct 2010-Sep 2011","Jan 2011-Dec 2011","Apr 2011-Mar 2012","Jul 2011-Jun 2012","Oct 2011-Sep 2012","Jan 2012-Dec 2012","Apr 2012-Mar 2013","Jul 2012-Jun 2013","Oct 2012-Sep 2013","Jan 2013-Dec 2013","Apr 2013-Mar 2014","Jul 2013-Jun 2014","Oct 2013-Sep 2014","Jan 2014-Dec 2014","Apr 2014-Mar 2015","Jul 2014-Jun 2015","Oct 2014-Sep 2015","Jan 2015-Dec 2015","Apr 2015-Mar 2016","Jul 2015-Jun 2016","Oct 2015-Sep 2016","Jan 2016-Dec 2016","Apr 2016-Mar 2017","Jul 2016-Jun 2017","Oct 2016-Sep 2017","Jan 2017-Dec 2017","Apr 2017-Mar 2018","Jul 2017-Jun 2018","Oct 2017-Sep 2018","Jan 2018-Dec 2018","Apr 2018-Mar 2019","Jul 2018-Jun 2019","Oct 2018-Sep 2019","Jan 2019-Dec 2019","Apr 2019-Mar 2020","Jul 2019-Jun 2020","Oct 2019-Sep 2020","Jan 2020-Dec 2020","Apr 2020-Mar 2021","Jul 2020-Jun 2021","Oct 2020-Sep 2021","Jan 2021-Dec 2021","Apr 2021-Mar 2022","Jul 2021-Jun 2022","Oct 2021-Sep 2022","Jan 2022-Dec 2022","Apr 2022-Mar 2023","Jul 2022-Jun 2023","Oct 2022-Sep 2023","Jan 2023-Dec 2023","Apr 2023-Mar 2024"],"y":[4.7999999999999998,4.7000000000000002,4.7999999999999998,4.7999999999999998,4.9000000000000004,5.0999999999999996,5.2999999999999998,5.5,5.5,5.4000000000000004,5.4000000000000004,5.2999999999999998,5.2999999999999998,5.2999999999999998,5.2999999999999998,5.5,5.9000000000000004,6.2999999999999998,7,7.5,7.7999999999999998,8,7.9000000000000004,7.7999999999999998,7.7999999999999998,7.7000000000000002,7.9000000000000004,8,8.0999999999999996,8.1999999999999993,8.1999999999999993,8.0999999999999996,8,8,8,7.9000000000000004,7.5999999999999996,7.2999999999999998,7,6.5999999999999996,6.4000000000000004,6,5.7000000000000002,5.5,5.2999999999999998,5.2000000000000002,5.2000000000000002,5.0999999999999996,5,4.9000000000000004,4.7000000000000002,4.5999999999999996,4.5,4.4000000000000004,4.2999999999999998,4.2999999999999998,4.2000000000000002,4.2000000000000002,4.0999999999999996,4,4,4.0999999999999996,4.0999999999999996,4.4000000000000004,4.7999999999999998,5.0999999999999996,5.2000000000000002,5,4.5999999999999996,4.2999999999999998,3.8999999999999999,3.7999999999999998,3.7000000000000002,3.7000000000000002,3.8999999999999999,3.8999999999999999,3.7999999999999998,4],"mode":"lines","line":{"color":"rgba(190,190,190,1)","width":5},"type":"scatter","name":"England","marker":{"color":"rgba(190,190,190,1)","line":{"color":"rgba(190,190,190,1)"}},"textfont":{"color":"rgba(190,190,190,1)"},"error_y":{"color":"rgba(190,190,190,1)"},"error_x":{"color":"rgba(190,190,190,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Jan 2004-Dec 2004","Apr 2004-Mar 2005","Jul 2004-Jun 2005","Oct 2004-Sep 2005","Jan 2005-Dec 2005","Apr 2005-Mar 2006","Jul 2005-Jun 2006","Oct 2005-Sep 2006","Jan 2006-Dec 2006","Apr 2006-Mar 2007","Jul 2006-Jun 2007","Oct 2006-Sep 2007","Jan 2007-Dec 2007","Apr 2007-Mar 2008","Jul 2007-Jun 2008","Oct 2007-Sep 2008","Jan 2008-Dec 2008","Apr 2008-Mar 2009","Jul 2008-Jun 2009","Oct 2008-Sep 2009","Jan 2009-Dec 2009","Apr 2009-Mar 2010","Jul 2009-Jun 2010","Oct 2009-Sep 2010","Jan 2010-Dec 2010","Apr 2010-Mar 2011","Jul 2010-Jun 2011","Oct 2010-Sep 2011","Jan 2011-Dec 2011","Apr 2011-Mar 2012","Jul 2011-Jun 2012","Oct 2011-Sep 2012","Jan 2012-Dec 2012","Apr 2012-Mar 2013","Jul 2012-Jun 2013","Oct 2012-Sep 2013","Jan 2013-Dec 2013","Apr 2013-Mar 2014","Jul 2013-Jun 2014","Oct 2013-Sep 2014","Jan 2014-Dec 2014","Apr 2014-Mar 2015","Jul 2014-Jun 2015","Oct 2014-Sep 2015","Jan 2015-Dec 2015","Apr 2015-Mar 2016","Jul 2015-Jun 2016","Oct 2015-Sep 2016","Jan 2016-Dec 2016","Apr 2016-Mar 2017","Jul 2016-Jun 2017","Oct 2016-Sep 2017","Jan 2017-Dec 2017","Apr 2017-Mar 2018","Jul 2017-Jun 2018","Oct 2017-Sep 2018","Jan 2018-Dec 2018","Apr 2018-Mar 2019","Jul 2018-Jun 2019","Oct 2018-Sep 2019","Jan 2019-Dec 2019","Apr 2019-Mar 2020","Jul 2019-Jun 2020","Oct 2019-Sep 2020","Jan 2020-Dec 2020","Apr 2020-Mar 2021","Jul 2020-Jun 2021","Oct 2020-Sep 2021","Jan 2021-Dec 2021","Apr 2021-Mar 2022","Jul 2021-Jun 2022","Oct 2021-Sep 2022","Jan 2022-Dec 2022","Apr 2022-Mar 2023","Jul 2022-Jun 2023","Oct 2022-Sep 2023","Jan 2023-Dec 2023","Apr 2023-Mar 2024"],"y":[6.2000000000000002,6.5,6.5,6.7999999999999998,6.9000000000000004,6.5999999999999996,6.7000000000000002,6.9000000000000004,6.9000000000000004,7.5,8,7.5999999999999996,7.2999999999999998,7.0999999999999996,6.7999999999999998,6.9000000000000004,7.2000000000000002,7.9000000000000004,8.5,9.1999999999999993,10.199999999999999,10.300000000000001,10.1,10.6,10.1,10,10.4,9.9000000000000004,10.1,10.4,10.1,10.199999999999999,10,9.5999999999999996,9.6999999999999993,9.8000000000000007,9.9000000000000004,9.9000000000000004,10.1,9.4000000000000004,9.5,8.4000000000000004,7.5999999999999996,7.0999999999999996,5.7999999999999998,6,6.2000000000000002,5.5,5.5,5.2000000000000002,4.7999999999999998,4.9000000000000004,5,4.7999999999999998,4.2999999999999998,4,3.5,3.5,3.6000000000000001,3.7000000000000002,4.2000000000000002,3.7000000000000002,3.7000000000000002,3.7000000000000002,3.6000000000000001,4.4000000000000004,4.7000000000000002,4.5999999999999996,4.7000000000000002,3.8999999999999999,3.5,3.2999999999999998,3.1000000000000001,3.3999999999999999,3.7999999999999998,4,5,5.5999999999999996],"mode":"lines","line":{"color":"rgba(173,216,230,1)","width":5},"type":"scatter","name":"Liverpool City Region","marker":{"color":"rgba(173,216,230,1)","line":{"color":"rgba(173,216,230,1)"}},"textfont":{"color":"rgba(173,216,230,1)"},"error_y":{"color":"rgba(173,216,230,1)"},"error_x":{"color":"rgba(173,216,230,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>The unemployment rate in Liverpool City Region is <strong>7.9%</strong>. This represents an increase of <strong>2.6%</strong><i class="fas fa-circle-arrow-up fa-1x text-success" role="presentation" aria-label="circle-arrow-up icon" color="#008000"></i> from the previous quarter.</p>
+</div>
+<p><br> <br> <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-3bee52eb122065fc63cd" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-3bee52eb122065fc63cd">{"x":{"visdat":{"730c25433a83":["function () ","plotlyVisDat"]},"cur_data":"730c25433a83","attrs":{"730c25433a83":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[16.199999999999999,16.5,16.100000000000001,16.399999999999999,16.300000000000001,17,17.300000000000001,17.300000000000001,16.800000000000001,16.600000000000001,16.699999999999999,16.5,16.399999999999999,16.399999999999999,16.199999999999999,16.199999999999999,17.100000000000001,17.300000000000001,17.5,17.100000000000001,16.300000000000001,16.399999999999999,16.199999999999999,16.5,16.399999999999999,16.600000000000001,17.199999999999999,17.399999999999999,16.899999999999999,16.5,16.899999999999999,16.5,16.399999999999999,16.199999999999999,16.399999999999999,16.300000000000001,16.600000000000001,17.600000000000001,17.600000000000001,16.899999999999999,16.300000000000001,16.300000000000001,16.100000000000001,16.5,16.300000000000001,17.100000000000001,17.300000000000001,17.100000000000001,16.800000000000001,16.699999999999999,16.5,16.5,16.399999999999999,16.399999999999999,16.199999999999999,16.300000000000001,17.399999999999999,17.199999999999999,17.199999999999999,16.300000000000001,16.199999999999999,16.5,16.399999999999999,16.5,17.100000000000001,17.5,16.800000000000001,16.600000000000001,16.899999999999999,16.5,16.5,16.399999999999999,16.300000000000001,16.199999999999999,16.600000000000001,17.399999999999999,17.399999999999999,17],"type":"scatter","mode":"lines","name":"England Males","line":{"width":5,"color":"grey"},"inherit":true},"730c25433a83.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[30.600000000000001,30.199999999999999,30.100000000000001,30,29.699999999999999,29.800000000000001,30.199999999999999,29.699999999999999,28.899999999999999,28.600000000000001,28.100000000000001,27.5,27.100000000000001,26.399999999999999,26,24.899999999999999,24.600000000000001,25,25.199999999999999,25.199999999999999,30.699999999999999,30.300000000000001,30,30.100000000000001,29.800000000000001,29.600000000000001,30.199999999999999,30,29.199999999999999,28.600000000000001,28.199999999999999,27.600000000000001,27.300000000000001,26.5,26.199999999999999,25.300000000000001,24.5,24.899999999999999,24.899999999999999,25.100000000000001,30.399999999999999,30.100000000000001,30.100000000000001,29.800000000000001,29.699999999999999,29.899999999999999,30.199999999999999,29.699999999999999,28.5,28.399999999999999,28.100000000000001,27.300000000000001,27.100000000000001,26.399999999999999,25.600000000000001,24.800000000000001,24.899999999999999,25.100000000000001,25.100000000000001,30.300000000000001,30.199999999999999,30,29.800000000000001,29.600000000000001,30,30.199999999999999,29.600000000000001,28.5,28.100000000000001,27.800000000000001,27.399999999999999,26.899999999999999,26.300000000000001,25.5,24.699999999999999,24.899999999999999,25.199999999999999,25.100000000000001],"type":"scatter","mode":"lines","name":"England Females","line":{"width":5,"color":"grey","dash":"dot"},"inherit":true},"730c25433a83.2":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[23.699999999999999,22.5,21.800000000000001,23.100000000000001,24.100000000000001,22.899999999999999,23,23.399999999999999,22.600000000000001,22,23.399999999999999,24.100000000000001,24.100000000000001,20.899999999999999,22.800000000000001,19.600000000000001,20.5,18.699999999999999,21.300000000000001,20.600000000000001,23.5,22.300000000000001,22.5,22.300000000000001,24.699999999999999,23.100000000000001,22.699999999999999,23.600000000000001,22.600000000000001,21.800000000000001,24.300000000000001,23.100000000000001,24.399999999999999,21.199999999999999,22,19.800000000000001,20.399999999999999,20,21.100000000000001,20.399999999999999,23.199999999999999,22.5,21.600000000000001,23.800000000000001,23.399999999999999,23,22.699999999999999,22.800000000000001,22.600000000000001,23.5,22.899999999999999,24.399999999999999,22.699999999999999,21.199999999999999,21.600000000000001,19.100000000000001,21.199999999999999,19.300000000000001,20.5,22.100000000000001,22.300000000000001,22.600000000000001,24.300000000000001,23.600000000000001,22.199999999999999,23.600000000000001,23,21.899999999999999,23.600000000000001,23,24.600000000000001,22.100000000000001,21.300000000000001,20.800000000000001,19.800000000000001,19.899999999999999,21.600000000000001,18.899999999999999],"type":"scatter","mode":"lines","name":"Liverpool Males","line":{"width":5,"color":"lightblue"},"inherit":true},"730c25433a83.3":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[34.100000000000001,34.600000000000001,34.5,34.299999999999997,35.100000000000001,33.299999999999997,32.5,31.800000000000001,30.899999999999999,30,32.899999999999999,32.100000000000001,31.699999999999999,31,28.399999999999999,27.800000000000001,28.300000000000001,25.399999999999999,26.899999999999999,28,34.899999999999999,34.399999999999999,34.899999999999999,33.600000000000001,35.600000000000001,33.399999999999999,32.399999999999999,32.299999999999997,31.300000000000001,30.199999999999999,31.699999999999999,33.299999999999997,30.899999999999999,31.5,29.300000000000001,28,28.300000000000001,25.399999999999999,26.800000000000001,27.899999999999999,33.799999999999997,35.399999999999999,34.399999999999999,34.899999999999999,34.200000000000003,32.799999999999997,31.899999999999999,32.700000000000003,30.199999999999999,31.199999999999999,33.299999999999997,31.5,32.299999999999997,30.100000000000001,27.300000000000001,28.600000000000001,26.600000000000001,25.600000000000001,27.800000000000001,34.600000000000001,34.899999999999999,34.200000000000003,35.299999999999997,33.5,32.299999999999997,32.200000000000003,32.399999999999999,30,31.300000000000001,32.600000000000001,32,32.100000000000001,29.399999999999999,27.600000000000001,29,25.300000000000001,27.300000000000001,27],"type":"scatter","mode":"lines","name":"Liverpool Females","line":{"width":5,"color":"lightblue","dash":"dot"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Inactivity Rate by Gender<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[16.199999999999999,16.5,16.100000000000001,16.399999999999999,16.300000000000001,17,17.300000000000001,17.300000000000001,16.800000000000001,16.600000000000001,16.699999999999999,16.5,16.399999999999999,16.399999999999999,16.199999999999999,16.199999999999999,17.100000000000001,17.300000000000001,17.5,17.100000000000001,16.300000000000001,16.399999999999999,16.199999999999999,16.5,16.399999999999999,16.600000000000001,17.199999999999999,17.399999999999999,16.899999999999999,16.5,16.899999999999999,16.5,16.399999999999999,16.199999999999999,16.399999999999999,16.300000000000001,16.600000000000001,17.600000000000001,17.600000000000001,16.899999999999999,16.300000000000001,16.300000000000001,16.100000000000001,16.5,16.300000000000001,17.100000000000001,17.300000000000001,17.100000000000001,16.800000000000001,16.699999999999999,16.5,16.5,16.399999999999999,16.399999999999999,16.199999999999999,16.300000000000001,17.399999999999999,17.199999999999999,17.199999999999999,16.300000000000001,16.199999999999999,16.5,16.399999999999999,16.5,17.100000000000001,17.5,16.800000000000001,16.600000000000001,16.899999999999999,16.5,16.5,16.399999999999999,16.300000000000001,16.199999999999999,16.600000000000001,17.399999999999999,17.399999999999999,17],"type":"scatter","mode":"lines","name":"England Males","line":{"color":"grey","width":5},"marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[30.600000000000001,30.199999999999999,30.100000000000001,30,29.699999999999999,29.800000000000001,30.199999999999999,29.699999999999999,28.899999999999999,28.600000000000001,28.100000000000001,27.5,27.100000000000001,26.399999999999999,26,24.899999999999999,24.600000000000001,25,25.199999999999999,25.199999999999999,30.699999999999999,30.300000000000001,30,30.100000000000001,29.800000000000001,29.600000000000001,30.199999999999999,30,29.199999999999999,28.600000000000001,28.199999999999999,27.600000000000001,27.300000000000001,26.5,26.199999999999999,25.300000000000001,24.5,24.899999999999999,24.899999999999999,25.100000000000001,30.399999999999999,30.100000000000001,30.100000000000001,29.800000000000001,29.699999999999999,29.899999999999999,30.199999999999999,29.699999999999999,28.5,28.399999999999999,28.100000000000001,27.300000000000001,27.100000000000001,26.399999999999999,25.600000000000001,24.800000000000001,24.899999999999999,25.100000000000001,25.100000000000001,30.300000000000001,30.199999999999999,30,29.800000000000001,29.600000000000001,30,30.199999999999999,29.600000000000001,28.5,28.100000000000001,27.800000000000001,27.399999999999999,26.899999999999999,26.300000000000001,25.5,24.699999999999999,24.899999999999999,25.199999999999999,25.100000000000001],"type":"scatter","mode":"lines","name":"England Females","line":{"color":"grey","width":5,"dash":"dot"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[23.699999999999999,22.5,21.800000000000001,23.100000000000001,24.100000000000001,22.899999999999999,23,23.399999999999999,22.600000000000001,22,23.399999999999999,24.100000000000001,24.100000000000001,20.899999999999999,22.800000000000001,19.600000000000001,20.5,18.699999999999999,21.300000000000001,20.600000000000001,23.5,22.300000000000001,22.5,22.300000000000001,24.699999999999999,23.100000000000001,22.699999999999999,23.600000000000001,22.600000000000001,21.800000000000001,24.300000000000001,23.100000000000001,24.399999999999999,21.199999999999999,22,19.800000000000001,20.399999999999999,20,21.100000000000001,20.399999999999999,23.199999999999999,22.5,21.600000000000001,23.800000000000001,23.399999999999999,23,22.699999999999999,22.800000000000001,22.600000000000001,23.5,22.899999999999999,24.399999999999999,22.699999999999999,21.199999999999999,21.600000000000001,19.100000000000001,21.199999999999999,19.300000000000001,20.5,22.100000000000001,22.300000000000001,22.600000000000001,24.300000000000001,23.600000000000001,22.199999999999999,23.600000000000001,23,21.899999999999999,23.600000000000001,23,24.600000000000001,22.100000000000001,21.300000000000001,20.800000000000001,19.800000000000001,19.899999999999999,21.600000000000001,18.899999999999999],"type":"scatter","mode":"lines","name":"Liverpool Males","line":{"color":"lightblue","width":5},"marker":{"color":"rgba(44,160,44,1)","line":{"color":"rgba(44,160,44,1)"}},"error_y":{"color":"rgba(44,160,44,1)"},"error_x":{"color":"rgba(44,160,44,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Apr 2004-Mar 2005","Apr 2005-Mar 2006","Apr 2006-Mar 2007","Apr 2007-Mar 2008","Apr 2008-Mar 2009","Apr 2009-Mar 2010","Apr 2010-Mar 2011","Apr 2011-Mar 2012","Apr 2012-Mar 2013","Apr 2013-Mar 2014","Apr 2014-Mar 2015","Apr 2015-Mar 2016","Apr 2016-Mar 2017","Apr 2017-Mar 2018","Apr 2018-Mar 2019","Apr 2019-Mar 2020","Apr 2020-Mar 2021","Apr 2021-Mar 2022","Apr 2022-Mar 2023","Apr 2023-Mar 2024","Jan 2004-Dec 2004","Jan 2005-Dec 2005","Jan 2006-Dec 2006","Jan 2007-Dec 2007","Jan 2008-Dec 2008","Jan 2009-Dec 2009","Jan 2010-Dec 2010","Jan 2011-Dec 2011","Jan 2012-Dec 2012","Jan 2013-Dec 2013","Jan 2014-Dec 2014","Jan 2015-Dec 2015","Jan 2016-Dec 2016","Jan 2017-Dec 2017","Jan 2018-Dec 2018","Jan 2019-Dec 2019","Jan 2020-Dec 2020","Jan 2021-Dec 2021","Jan 2022-Dec 2022","Jan 2023-Dec 2023","Jul 2004-Jun 2005","Jul 2005-Jun 2006","Jul 2006-Jun 2007","Jul 2007-Jun 2008","Jul 2008-Jun 2009","Jul 2009-Jun 2010","Jul 2010-Jun 2011","Jul 2011-Jun 2012","Jul 2012-Jun 2013","Jul 2013-Jun 2014","Jul 2014-Jun 2015","Jul 2015-Jun 2016","Jul 2016-Jun 2017","Jul 2017-Jun 2018","Jul 2018-Jun 2019","Jul 2019-Jun 2020","Jul 2020-Jun 2021","Jul 2021-Jun 2022","Jul 2022-Jun 2023","Oct 2004-Sep 2005","Oct 2005-Sep 2006","Oct 2006-Sep 2007","Oct 2007-Sep 2008","Oct 2008-Sep 2009","Oct 2009-Sep 2010","Oct 2010-Sep 2011","Oct 2011-Sep 2012","Oct 2012-Sep 2013","Oct 2013-Sep 2014","Oct 2014-Sep 2015","Oct 2015-Sep 2016","Oct 2016-Sep 2017","Oct 2017-Sep 2018","Oct 2018-Sep 2019","Oct 2019-Sep 2020","Oct 2020-Sep 2021","Oct 2021-Sep 2022","Oct 2022-Sep 2023"],"y":[34.100000000000001,34.600000000000001,34.5,34.299999999999997,35.100000000000001,33.299999999999997,32.5,31.800000000000001,30.899999999999999,30,32.899999999999999,32.100000000000001,31.699999999999999,31,28.399999999999999,27.800000000000001,28.300000000000001,25.399999999999999,26.899999999999999,28,34.899999999999999,34.399999999999999,34.899999999999999,33.600000000000001,35.600000000000001,33.399999999999999,32.399999999999999,32.299999999999997,31.300000000000001,30.199999999999999,31.699999999999999,33.299999999999997,30.899999999999999,31.5,29.300000000000001,28,28.300000000000001,25.399999999999999,26.800000000000001,27.899999999999999,33.799999999999997,35.399999999999999,34.399999999999999,34.899999999999999,34.200000000000003,32.799999999999997,31.899999999999999,32.700000000000003,30.199999999999999,31.199999999999999,33.299999999999997,31.5,32.299999999999997,30.100000000000001,27.300000000000001,28.600000000000001,26.600000000000001,25.600000000000001,27.800000000000001,34.600000000000001,34.899999999999999,34.200000000000003,35.299999999999997,33.5,32.299999999999997,32.200000000000003,32.399999999999999,30,31.300000000000001,32.600000000000001,32,32.100000000000001,29.399999999999999,27.600000000000001,29,25.300000000000001,27.300000000000001,27],"type":"scatter","mode":"lines","name":"Liverpool Females","line":{"color":"lightblue","width":5,"dash":"dot"},"marker":{"color":"rgba(214,39,40,1)","line":{"color":"rgba(214,39,40,1)"}},"error_y":{"color":"rgba(214,39,40,1)"},"error_x":{"color":"rgba(214,39,40,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>The inactivity rate in Liverpool City Region for is <strong>18.9%</strong> for males and <strong>27%</strong> for females.</p>
+<p>This represents a decrease of <strong>-12.5%</strong> for males and <strong>-1.1%</strong> decrease for females from the previous year.</p>
+</div>
+<p><br> <br> <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-82c0471335393fead488" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-82c0471335393fead488">{"x":{"visdat":{"730c166e7db3":["function () ","plotlyVisDat"]},"cur_data":"730c166e7db3","attrs":{"730c166e7db3":{"x":{},"y":{},"mode":"lines","line":{"width":5,"color":"lightblue"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["2015","2016","2017","2018","2019","2020","2021","2022","2023"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Median Gross Weekly Earnings in Liverpool City Region<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2015","2016","2017","2018","2019","2020","2021","2022"],"y":[487.60000000000002,503.80000000000001,513.39999999999998,533.70000000000005,555.70000000000005,564.60000000000002,578.89999999999998,607.70000000000005],"mode":"lines","line":{"color":"lightblue","width":5},"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br> <br> <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-9fed4e2c84ee89f26a54" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-9fed4e2c84ee89f26a54">{"x":{"visdat":{"730c52a85d14":["function () ","plotlyVisDat"]},"cur_data":"730c52a85d14","attrs":{"730c52a85d14":{"x":{},"y":{},"mode":"lines","line":{"width":5,"color":"lightblue"},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["2015","2016","2017","2018","2019","2020","2021","2022"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Total Number of Workers in Liverpool City Region<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["2015","2016","2017","2018","2019","2020","2021","2022"],"y":[604000,617000,628000,633000,656000,637000,671000,671000],"mode":"lines","line":{"color":"lightblue","width":5},"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>The number of workers in Liverpool City Region for is <strong>671,000</strong>. This represents an increase of <strong>11.1%</strong> <i class="fas fa-circle-arrow-up fa-1x text-success" role="presentation" aria-label="circle-arrow-up icon" color="#008000"></i> from 2015.</p>
+</div>
+<p><br> <br> <br></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-c974019a4c3d7c3bfa8f" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c974019a4c3d7c3bfa8f">{"x":{"visdat":{"730c77ff7b5c":["function () ","plotlyVisDat"]},"cur_data":"730c77ff7b5c","attrs":{"730c77ff7b5c":{"x":{},"y":{},"mode":"lines","line":{"width":5},"color":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"","tickfont":{"family":"Arial","color":"darkgrey","size":12},"showgrid":false,"type":"category","categoryorder":"array","categoryarray":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"]},"yaxis":{"domain":[0,1],"automargin":true,"tickformat":",.0f","title":"","showgrid":true,"gridcolor":"lightgray","gridwidth":1,"tickfont":{"family":"Arial","color":"darkgrey","size":12}},"showlegend":false,"autosize":true,"title":{"text":"<b>Claimant Count in LCR, by Local Authority<\/b>","font":{"color":"darkgrey","family":"Arial"},"margin":{"l":80,"r":80,"t":80,"b":80},"width":800,"height":500},"hovermode":"closest"},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"],"y":[9405,7905,6010,4660,6170,7235,7005,6700,5895,5450,4495,3885,3860,3215,2770,3095,2690,2050,2090,2625,2200,2440,4500,3935,4080,4395,3805,2670,2270,2080,3050,3155,3310,5855,4725,3350,3365,3640],"mode":"lines","line":{"color":"rgba(102,194,165,1)","width":5},"type":"scatter","name":"Halton","marker":{"color":"rgba(102,194,165,1)","line":{"color":"rgba(102,194,165,1)"}},"textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"],"y":[17435,14835,12280,11070,12220,12515,12025,10810,9420,9060,7430,6720,5940,5685,5110,4635,4150,3680,3495,4135,3835,3980,6265,5445,5790,6200,5310,3760,3455,3145,3295,3235,4380,8120,7110,4760,4540,4645],"mode":"lines","line":{"color":"rgba(252,141,98,1)","width":5},"type":"scatter","name":"Knowsley","marker":{"color":"rgba(252,141,98,1)","line":{"color":"rgba(252,141,98,1)"}},"textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"],"y":[52535,46255,38765,34340,37890,39425,38605,35575,32670,31130,25825,23005,20395,19105,16675,15860,15195,14220,14640,16525,14900,14740,21310,19380,20915,21145,19050,14210,12275,11130,11755,11580,14220,28990,26970,19065,18740,19470],"mode":"lines","line":{"color":"rgba(141,160,203,1)","width":5},"type":"scatter","name":"Liverpool","marker":{"color":"rgba(141,160,203,1)","line":{"color":"rgba(141,160,203,1)"}},"textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"],"y":[19030,16280,12780,11495,13645,15175,15505,14350,12645,12320,9455,8275,7690,6870,5985,5490,5260,4495,4045,4750,4690,4965,8560,7800,8475,8615,7445,5220,4535,4180,4235,5330,6210,11620,9980,6665,6250,6290],"mode":"lines","line":{"color":"rgba(231,138,195,1)","width":5},"type":"scatter","name":"Sefton","marker":{"color":"rgba(231,138,195,1)","line":{"color":"rgba(231,138,195,1)"}},"textfont":{"color":"rgba(231,138,195,1)"},"error_y":{"color":"rgba(231,138,195,1)"},"error_x":{"color":"rgba(231,138,195,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"],"y":[13110,10975,8450,7190,8635,9410,9465,8700,7475,7165,5400,4820,4685,4390,3795,3685,3380,2890,2755,3155,3115,3340,5675,5020,5095,5545,5070,3850,3555,3105,3100,3110,4305,7680,6535,4540,4390,4555],"mode":"lines","line":{"color":"rgba(166,216,84,1)","width":5},"type":"scatter","name":"St. Helens","marker":{"color":"rgba(166,216,84,1)","line":{"color":"rgba(166,216,84,1)"}},"textfont":{"color":"rgba(166,216,84,1)"},"error_y":{"color":"rgba(166,216,84,1)"},"error_x":{"color":"rgba(166,216,84,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["June 1987","June 1988","June 1989","June 1990","June 1991","June 1992","June 1993","June 1994","June 1995","June 1996","June 1997","June 1998","June 1999","June 2000","June 2001","June 2002","June 2003","June 2004","June 2005","June 2006","June 2007","June 2008","June 2009","June 2010","June 2011","June 2012","June 2013","June 2014","June 2015","June 2016","June 2017","June 2018","June 2019","June 2020","June 2021","June 2022","June 2023","June 2024"],"y":[23700,20180,16445,14655,17270,18820,18915,17905,16470,15360,12520,10270,9845,8935,7390,6990,6230,5580,5950,6960,6170,6255,10265,8730,8780,8650,7485,5510,4970,4095,4310,5665,7135,12770,10545,7285,6890,7010],"mode":"lines","line":{"color":"rgba(255,217,47,1)","width":5},"type":"scatter","name":"Wirral","marker":{"color":"rgba(255,217,47,1)","line":{"color":"rgba(255,217,47,1)"}},"textfont":{"color":"rgba(255,217,47,1)"},"error_y":{"color":"rgba(255,217,47,1)"},"error_x":{"color":"rgba(255,217,47,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+<div class="blackbox">
+<div class="{.data-latex=&quot;&quot;}">
+<p><strong>Key Trends</strong></p>
+</div>
+<p>The number of workers claiming benefits in Liverpool City Region in 2023 is <strong>44,175</strong>. This represents an increase of <strong>-3.3%</strong> <i class="fas fa-circle-arrow-down fa-1x text-danger" role="presentation" aria-label="circle-arrow-down icon" color="#FF0000"></i> from the previous year. The local authority with the highest rate of residents claiming benefits is <strong>Liverpool</strong> and the lowest being <strong>Halton</strong>.</p>
+</div>
+<p><br><br></p>
+<p><img src="ERI.png" class="wide-image img-fluid"></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
