@@ -1,0 +1,727 @@
+---
+title: "Skills"
+author: "Sawyer Phinney"
+date: last-modified
+date-format: "DD/MM/YYYY"
+format: 
+  html:
+    grid:
+      sidebar-width: 200px
+      body-width: 1000px
+      margin-width: 200px
+      gutter-width: 1.5rem
+    code-fold: true
+    toc: true
+    toc-location: left
+    number-sections: true
+    theme: flatly
+    highlight-style: tango
+    fontfamily: "Arial"
+    fontsize: 12pt
+    css: style.css
+editor: visual
+---
+
+```{r include = FALSE}
+## Dependencies
+
+#| warning: false
+#| message: false
+# data manipulation
+library(tidyverse)
+# plot design / placement
+library(patchwork)
+library(ggfortify)
+# time series modelling
+library(forecast)
+library(tseries)
+library(dplyr)
+library(sf)
+library(readr)
+library(readxl)
+library(scales)
+library(DataCombine)
+library(data.table)
+library(plyr)
+library(collapse)
+library(stats)
+library(ggplot2)
+library(plotly)
+library(fontawesome)
+library(htmltools)
+library(httr)
+library(lubridate)
+library(readr)
+library(base)
+library(kableExtra)
+
+        
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+# Create a function to generate the arrow icon
+generate_arrow_icon <- function(Percent_Increase) {
+  if (Percent_Increase > 0) {
+    icon = fa_i("circle-arrow-up", color="#008000", class="fa-1x text-success")
+  } else {
+    icon = fa_i("circle-arrow-down", color="#FF0000", class="fa-1x text-danger")
+  }
+  html_icon = htmltools::tagList(icon)
+  return(html_icon)
+}
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+# Create a function to generate the arrow icon
+generate_arrow_icon <- function(Percent_Change) {
+  if (Percent_Increase > 0) {
+    icon = fa_i("circle-arrow-up", color="#008000", class="fa-1x text-success")
+  } else {
+    icon = fa_i("circle-arrow-down", color="#FF0000", class="fa-1x text-danger")
+  }
+  html_icon = htmltools::tagList(icon)
+  return(html_icon)
+}
+
+```
+
+::: logo
+![](LCR_map.jpg)
+:::
+
+```{r calculate, include=FALSE}
+
+#Qualification Levels
+quals21 <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2084_1.data.csv?date=latest&geography=1925185554,2092957699&c2021_hiqual_8=1...6&measures=20301&select=geography_name,c2021_hiqual_8_name,obs_value")
+
+
+# Calculate total levels 4
+Level4 <- subset(quals21, C2021_HIQUAL_8_NAME == "Level 4 qualifications or above")
+
+# Calculate the maximum OBS_VALUE for LCR Level 4 qualifications in LCR
+Level4LCR <- subset(Level4, GEOGRAPHY_NAME == "Liverpool City Region")
+Level4Max <- max(Level4LCR$OBS_VALUE)
+
+# Convert to a whole number and avoid scientific notation
+Level4Max <- format(Level4Max, scientific = FALSE, big.mark = ",")
+
+
+# Calculate the maximum OBS_VALUE for LCR Level 4 qualifications in England
+Level4E <- subset(Level4, GEOGRAPHY_NAME == "England")
+Level4EMax <- max(Level4E$OBS_VALUE)
+
+# Convert to a whole number and avoid scientific notation
+Level4EMax <- format(Level4EMax, scientific = FALSE, big.mark = ",")
+
+# Convert OBS_VALUE to numeric
+Level4Max <- as.numeric(Level4Max)
+Level4EMax <- as.numeric(Level4EMax)
+
+#LCR compared to England on Level 4+
+
+Level4Compare <- (Level4Max-Level4EMax)/Level4EMax
+
+Level4Compare <- percent(Level4Compare, accuracy = 0.1)
+
+
+
+#No Qualifications Calculation////
+
+# Calculate no qualifications
+Level0 <- subset(quals21, C2021_HIQUAL_8_NAME == "No qualifications")
+
+# Calculate the maximum OBS_VALUE for LCR no qualifications in LCR
+Level0LCR <- subset(Level0, GEOGRAPHY_NAME == "Liverpool City Region")
+Level0Max <- max(Level0LCR$OBS_VALUE)
+
+# Convert to a whole number and avoid scientific notation
+Level0Max <- format(Level0Max, scientific = FALSE, big.mark = ",")
+
+# Calculate the maximum OBS_VALUE for no qualifications in England
+Level0E <- subset(Level0, GEOGRAPHY_NAME == "England")
+Level0EMax <- max(Level0E$OBS_VALUE)
+
+# Convert to a whole number and avoid scientific notation
+Level0EMax <- format(Level0EMax, scientific = FALSE, big.mark = ",")
+
+# Convert OBS_VALUE to numeric
+Level0Max <- as.numeric(Level0Max)
+Level0EMax <- as.numeric(Level0EMax)
+
+#LCR compared to England on no qualifications
+
+Level0Compare <- (Level0Max-Level0EMax)/Level0EMax
+
+Level0Compare <- percent(Level0Compare, accuracy = 0.1)
+
+
+
+```
+
+<br>
+
+# Qualification Levels
+
+<br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+#Qualification Census 2021////
+quals21 <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2084_1.data.csv?date=latest&geography=1925185554,2092957699&c2021_hiqual_8=1...6&measures=20301&select=geography_name,c2021_hiqual_8_name,obs_value")
+
+# Rename the columns
+colnames(quals21) <- c("GEOGRAPHY_NAME", "C2021_HIQUAL_8_NAME", "OBS_VALUE")
+
+# Convert OBS_VALUE to numeric
+quals21$OBS_VALUE <- as.numeric(quals21$OBS_VALUE)
+
+
+#Qualification Census 2011////
+quals11 <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_623_1.data.csv?date=latest&geography=1925185554,2092957699&rural_urban=0&cell=1...7&measures=20301&select=geography_name,cell_name,obs_value")
+
+
+# Rename the columns
+colnames(quals11) <- c("GEOGRAPHY_NAME", "CELL_NAME", "OBS_VALUE")
+
+# Convert OBS_VALUE to numeric
+quals11$OBS_VALUE <- as.numeric(quals11$OBS_VALUE)
+
+# Chnage name of columns
+quals21 <- quals21 %>%
+  mutate(C2021_HIQUAL_8_NAME = replace(C2021_HIQUAL_8_NAME, C2021_HIQUAL_8_NAME == "Level 1 and entry level qualifications", "Level 1 qualifications"))
+
+quals21 <- quals21 %>%
+  mutate(C2021_HIQUAL_8_NAME = replace(C2021_HIQUAL_8_NAME, C2021_HIQUAL_8_NAME == "Level 4 qualifications or above", "Level 4+ qualifications"))
+
+
+
+
+# Plot Starts
+plot_ly(quals21, x = ~C2021_HIQUAL_8_NAME, y = ~OBS_VALUE, color = ~GEOGRAPHY_NAME, type = 'bar') %>%
+  
+layout(xaxis = list(
+      title = "", tickfont = list(family='Arial', color="darkgrey", size=12),
+      showgrid = FALSE  # Hide vertical gridlines
+    ),
+    yaxis = list(title = list(text = "<b>Proportion of working age residents (%)</b>", font = list(color = "darkgrey", family = "Arial")), showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,
+      tickfont = list(family='Arial', color="darkgrey", size=12)),
+        showlegend = TRUE,
+        autosize = TRUE,
+      title = list(text = "<b>Qualification Levels, 2011 and 2021</b>", font = list(color = "darkgrey", family = "Arial"),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+
+
+
+
+```
+
+<br> <br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+The proportion of working-age residents with level 4+ qualifications in LCR is **`r Level4Max`**%. This is **`r Level4Compare`** lower than the national average.
+
+The proportion of those with no qualifications in LCR is **`r Level0Max`**%. This is **`r Level0Compare`** higher than the national average.
+:::
+
+<br><br>
+
+# Apprenticeships
+
+<br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+
+Apps <- read_excel("C:/Users/sawye/OneDrive/R Dashboard/Apps_2024.xlsx")
+
+
+# Convert OBS_VALUE to numeric
+Apps$starts <- as.numeric(Apps$starts)
+Apps$achievements <- as.numeric(Apps$achievements)
+
+
+
+
+#Apprenticeships Starts/////////
+
+# Delete columns so that only show time and starts
+starts_new <- Apps[,c("time_period", "starts")]
+
+# Filter data for 2017/18
+starts_1 <- subset(starts_new, time_period == "201718")
+
+# Calculate the total number of starts in 2017/18
+Total2017 <- round(sum(starts_1$starts, na.rm = TRUE))
+
+
+
+# Filter data for 2018/19
+starts_2 <- subset(starts_new, time_period == "201819")
+
+# Calculate the total number of starts in 2018/19
+Total2018 <- round(sum(starts_2$starts, na.rm = TRUE))
+
+# Filter data for 2019/20
+starts_3 <- subset(starts_new, time_period == "201920")
+
+# Calculate the total number of starts in 2019/20
+Total2019 <- round(sum(starts_3$starts, na.rm = TRUE))
+
+# Filter data for 2020/21
+starts_4 <- subset(starts_new, time_period == "202021")
+
+# Calculate the total number of starts in 2020/21
+Total2020 <- round(sum(starts_4$starts, na.rm = TRUE))
+
+# Filter data for 2021/22
+starts_5 <- subset(starts_new, time_period == "202122")
+
+# Calculate the total number of starts in 2021/22
+Total2021 <- round(sum(starts_5$starts, na.rm = TRUE))
+
+# Filter data for 2022/23
+starts_6 <- subset(starts_new, time_period == "202223")
+
+# Calculate the total number of starts in 2022/23
+Total2022 <- round(sum(starts_6$starts, na.rm = TRUE))
+
+Year_column <- c("2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23")
+
+Starts_column <- c(Total2017, Total2018, Total2019, Total2020, Total2021, Total2022)
+
+df_starts <- data.frame(Year_column, Starts_column)
+
+#percent change starts
+
+Total2022 <- as.numeric(Total2022)
+Total2017 <- as.numeric(Total2017)
+
+a_starts <- (Total2022-Total2017)/Total2017
+Percent_Increase <- percent(a_starts, accuracy = 0.1)
+# Generate the arrow icon
+html_icon = generate_arrow_icon(Percent_Increase)
+
+
+# Plot Starts
+plot_ly(df_starts, x = ~Year_column, y = ~Starts_column, type = "scatter", mode = "lines", line = list(color = "lightblue", width = 6)) %>%
+  layout(xaxis = list(
+      title = "", tickfont = list(family='Arial', color="darkgrey", size=12),
+      showgrid = FALSE  # Hide vertical gridlines
+    ),
+    yaxis = list(tickformat = ",.0f", 
+      title = "", showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,
+      tickfont = list(family='Arial', color="darkgrey", size=12)),
+        showlegend = FALSE,
+        autosize = TRUE,
+      title = list(text = "<b>Apprenticeship Starts, 2017/18 to 2022/23</b>", font = list(color = "darkgrey", family = "Arial"),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+
+```
+
+<br> <br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+Apps <- read_excel("C:/Users/sawye/OneDrive/R Dashboard/Apps_2024.xlsx")
+
+#Apprenticeships Achievements/////////
+
+# Delete columns so that only show time and achievements
+achieve_new <- Apps[,c("time_period", "achievements")]
+
+achieve_new$achievements <- as.numeric(achieve_new$achievements)
+
+# Filter data for 2017/18
+ach_1 <- subset(achieve_new, time_period == "201718")
+
+# Calculate the total number of achievements in 2017/18
+Total2017a <- round(sum(ach_1$achievements, na.rm = TRUE))
+
+
+
+# Filter data for 2018/19
+ach_2 <- subset(achieve_new, time_period == "201819")
+
+# Calculate the total number of achievements in 2018/19
+Total2018a <- round(sum(ach_2$achievements, na.rm = TRUE))
+
+# Filter data for 2019/20
+achievements_3 <- subset(achieve_new, time_period == "201920")
+
+# Calculate the total number of achievements in 2019/20
+Total2019a <- round(sum(achievements_3$achievements, na.rm = TRUE))
+
+# Filter data for 2020/21
+achievements_4 <- subset(achieve_new, time_period == "202021")
+
+# Calculate the total number of achievements in 2020/21
+Total2020a <- round(sum(achievements_4$achievements, na.rm = TRUE))
+
+# Filter data for 2021/22
+achievements_5 <- subset(achieve_new, time_period == "202122")
+
+# Calculate the total number of achievements in 2021/22
+Total2021a <- round(sum(achievements_5$achievements, na.rm = TRUE))
+
+# Filter data for 2022/23
+achievements_6 <- subset(achieve_new, time_period == "202223")
+
+# Calculate the total number of achievements in 2022/23
+Total2022a <- round(sum(achievements_6$achievements, na.rm = TRUE))
+
+Year_columna <- c("2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23")
+
+Starts_columna <- c(Total2017a, Total2018a, Total2019a, Total2020a, Total2021a, Total2022a)
+
+df_ach <- data.frame(Year_columna, Starts_columna)
+
+#percent change achievements
+
+Total2022a <- as.numeric(Total2022a)
+Total2017a <- as.numeric(Total2017a)
+
+a_ach <- (Total2022a-Total2017a)/Total2017a
+
+#///Need to create two arrow code chunks when using Percent Increase twice in a text box (i.e starts and achievements)
+Percent_Change <- percent(a_ach, accuracy = 0.1)
+
+# Generate the arrow icon
+html_icon = generate_arrow_icon(Percent_Change)
+
+
+# Plot achievements
+plot_ly(df_ach, x = ~Year_columna, y = ~Starts_columna, type = "scatter", mode = "lines", line = list(color = "pink", width = 6)) %>%
+  
+    layout(xaxis = list(
+      title = "", tickfont = list(family='Arial', color="darkgrey", size=12),
+      showgrid = FALSE  # Hide vertical gridlines
+    ),
+    yaxis = list(tickformat = ",.0f", 
+      title = "", showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,
+      tickfont = list(family='Arial', color="darkgrey", size=12)),
+        showlegend = FALSE,
+        autosize = TRUE,
+      title = list(text = "<b>Apprenticeship Achievements, 2017/18 to 2022/23</b>", font = list(color = "darkgrey", family = "Arial"),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+
+```
+
+<br> <br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+In 2022/23, there were **`r Total2022`** apprenticeship starts in Liverpool City Region. This represents a **`r Percent_Increase`**% `r html_icon` change since 2017/18.
+
+When it comes to apprenticeships achievements, there were **`r Total2022a`** in Liverpool City Region in 2022/23. This represents a **`r Percent_Change`**% `r html_icon` change since 2017/18.
+:::
+
+# Further Education
+
+<br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+FE <- read_excel("C:/Users/sawye/OneDrive/R Dashboard/further-education24.xlsx")
+
+FE$time_period <- as.character(FE$time_period)
+
+FE <- FE %>%
+  arrange(time_period)
+
+
+
+# Calculate LCR 2022/23
+FE_LCR <- subset(FE, geography_name == "Liverpool City Region")
+
+# Calculate the OBS_VALUE in LCR
+LCRFE_23 <- subset(FE_LCR, time_period == "202223")
+
+LCRFEMAX <- sum(LCRFE_23$participation_rate_per_100000_population)
+
+
+# Calculate LCR 2022/23
+FE_LCR <- subset(FE, geography_name == "Liverpool City Region")
+
+# Calculate the OBS_VALUE in LCR
+LCRFE_17 <- subset(FE_LCR, time_period == "201718")
+LCRFEMAX17 <- sum(LCRFE_17$participation_rate_per_100000_population)
+
+
+
+#Calculate percent change since 2017
+LCRFEMAX <- as.numeric(LCRFEMAX)
+LCRFEMAX17 <- as.numeric(LCRFEMAX17)
+
+
+
+FE_C <- (LCRFEMAX-LCRFEMAX17)/LCRFEMAX17
+
+Percent_Increase <- percent(FE_C, accuracy = 0.1)
+# Generate the arrow icon
+html_icon = generate_arrow_icon(Percent_Increase)
+
+#put value into number form and not scientific notation
+FEMAX <- format(LCRFEMAX, scientific = FALSE, big.mark = ",")
+
+# Plot
+
+plot_ly(FE, x = ~time_period, y = ~participation_rate_per_100000_population, color = ~geography_name, type = 'bar') %>%
+ 
+  layout(xaxis = list(
+      title = "", tickfont = list(family='Arial', color="darkgrey", size=12),
+      showgrid = FALSE  # Hide vertical gridlines
+    ),
+    yaxis = list(tickformat = ",.0f", 
+      title = "", showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,
+      tickfont = list(family='Arial', color="darkgrey", size=12)),
+        showlegend = TRUE,
+        autosize = TRUE,
+      title = list(text = "<b>Further Education Participation Rate Per 1,000 Residents, 2017/18 to 2022/23</b>", font = list(color = "darkgrey", family = "Arial"),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+  
+  
+  
+```
+
+<br> <br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+In 2022/23, the further education particpation rate per 100,000 residents in Liverpool City Region was **`r FEMAX`**. This represents a **`r Percent_Increase`**% `r html_icon` change since 2017/18.
+:::
+
+<br><br>
+
+# Destination Measures
+
+<br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(tidyverse)
+library(rlang)
+library(dplyr)
+library(readxl)
+library(data.table)
+library(scales)
+
+
+key<- read_excel("C:/Users/sawye/OneDrive/R Dashboard/keystage4.xlsx")
+
+
+
+ 
+# Convert data.frame to data.table
+gfg <- data.table(key)
+ 
+# Calculate the mean by "time_period" group
+mean_by_category <- gfg[, .(Mean_Frequency = mean(overall)), by = time_period]
+
+
+mean_by_category$time_period <- as.character(mean_by_category$time_period)
+
+mean_by_category <- mean_by_category %>%
+  arrange(time_period)
+
+
+
+# Convert OBS_VALUE to numeric
+mean_by_category$Mean_Frequency <- as.numeric(mean_by_category$Mean_Frequency)
+
+# Calculate the OBS_VALUE in LCR in 202122
+DM2021 <- subset(mean_by_category, time_period == "202122")
+DM2021M <- sum(DM2021$Mean_Frequency)
+DM2021M <- round(DM2021M, digits = 1)
+
+# Calculate percent change 
+DM2011 <- subset(mean_by_category, time_period == "201112")
+DM2011M <- sum(DM2011$Mean_Frequency)
+DM2011M <- round(DM2011M, digits = 1)
+
+
+Desppt <- (DM2021M-DM2011M)/DM2011M
+
+Percent_Increase <- percent(Desppt, accuracy = 0.1)
+
+# Generate the arrow icon
+html_icon = generate_arrow_icon(Percent_Increase)
+
+
+
+
+
+plot_ly(mean_by_category, x = ~time_period, y = ~Mean_Frequency, type = "scatter", mode = "lines", line = list(color = "lightgreen", width = 6)) %>%
+ 
+    layout(xaxis = list(
+      title = "", tickfont = list(family='Arial', color="darkgrey", size=12),
+      showgrid = FALSE  # Hide vertical gridlines
+    ),
+    yaxis = list(tickformat = ",.0f", 
+      title = "", showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,
+      tickfont = list(family='Arial', color="darkgrey", size=12)),
+        showlegend = FALSE,
+        autosize = TRUE,
+      title = list(text = "<b>Key Stage 4 Destination Measures (sustained education, employment & apprenticeships)</b>", font = list(color = "darkgrey", family = "Arial", size=14),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+  
+  
+  
+
+
+```
+
+<br> <br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+In 2021/22, the proprotion of residents entering education, employment & apprenticeships after Key Stage 4 was **`r DM2021M`**%. This represents a **`r Percent_Increase`**% `r html_icon` increase since 2011/12.
+:::
+
+<br><br>
+
+# Skills & Employment Training
+
+<br><br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+#employer training ons 
+train <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_17_5.data.csv?geography=1853882372,2092957699&date=latestMINUS40-latest&variable=620&measures=20599,21001,21002,21003&select=date_name,geography_name,measures_name,obs_value")
+
+# Rename the columns
+colnames(train) <- c("DATE_NAME", "GEOGRAPHY_NAME", "MEASURES_NAME", "OBS_VALUE")
+
+# Convert OBS_VALUE to numeric
+train$OBS_VALUE <- as.numeric(train$OBS_VALUE)
+
+# Filter the dataframe to include only rows where MEASURES_NAME contains "Variable"
+train <- train %>%
+  filter(grepl('Variable', MEASURES_NAME))
+
+# Convert DATE_NAME to factor and set levels in desired order
+train$DATE_NAME <- factor(train$DATE_NAME, levels = unique(train$DATE_NAME))
+
+
+# Convert OBS_VALUE to numeric
+train$MEASURES_NAME <- as.numeric(train$MEASURES_NAME)
+
+# Calculate the OBS_VALUE in LCR
+LCRT <- subset(train, DATE_NAME == "Oct 2022-Sep 2023")
+LCRT1 <- subset(LCRT, GEOGRAPHY_NAME == "Liverpool City Region")
+LCRT2 <- sum(LCRT1$OBS_VALUE)
+
+LCRT2 <- as.numeric(LCRT2)
+
+#Percent Change from previous 12 months 
+LCRY <- subset(train, DATE_NAME == "Oct 2021-Sep 2022")
+LCRY1 <- subset(LCRY, GEOGRAPHY_NAME == "Liverpool City Region")
+LCRY2 <- sum(LCRY1$OBS_VALUE)
+
+LCRY2 <- as.numeric(LCRY2)
+
+TrainC <- (LCRT2-LCRY2)/LCRY2
+
+Percent_Increase <- percent(TrainC, accuracy = 0.1)
+
+# Generate the arrow icon
+html_icon = generate_arrow_icon(Percent_Increase)
+
+#Compare to England levels
+
+LCRE <- subset(train, DATE_NAME == "Oct 2022-Sep 2023")
+LCRE1 <- subset(LCRE, GEOGRAPHY_NAME == "England")
+LCRE2 <- sum(LCRE1$OBS_VALUE)
+
+LCRE2 <- as.numeric(LCRE2)
+
+EngTrain <- LCRT2-LCRE2
+
+#Turn into positive number
+EngTrainF <- (EngTrain)
+
+
+
+plot_ly(train, x = ~DATE_NAME, y = ~OBS_VALUE, color = ~GEOGRAPHY_NAME,  type = "scatter", mode = "lines", line = list(width = 6)) %>%
+  
+ layout(xaxis = list(
+      title = "", tickfont = list(family='Arial', color="darkgrey", size=12),
+      showgrid = FALSE  # Hide vertical gridlines
+    ),
+    yaxis = list(tickformat = ",.0f", 
+      title = "", showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,
+      tickfont = list(family='Arial', color="darkgrey", size=12)),
+        showlegend = FALSE,
+        autosize = TRUE,
+      title = list(text = "<b>Proportion (%) of workers who recieved job-related training in the last 3 months</b>", font = list(color = "darkgrey", family = "Arial"),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+  
+  
+  
+
+
+```
+
+<br> <br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+Latest ONS data shows that in the last three months, employers provided training to **`r LCRT2`**% of workers in Liverpool City Region. This represents a **`r Percent_Increase`** `r html_icon` change from the previous year. This represents **`r EngTrainF`** ppts below national levels.
+:::
+
+<br> <br> <br>![](ERI.png){.wide-image}

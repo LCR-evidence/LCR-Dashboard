@@ -1,0 +1,225 @@
+/* Logo Styling */
+.logo img {
+  width: 240px;  /* Adjust as necessary to increase width */
+  height: 190px;
+}
+
+.logo {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0.2em;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Table of Contents Styling */
+#TOC {
+  position: fixed;
+  left: 0;
+  top: 170px;  /* Adjust this value to match the height of the logo + padding */
+  width: 900px;  /* Increase width */
+  height: calc(100% - 250px - 2em);  /* Adjust this value to account for the logo height + padding */
+  overflow: auto;
+  padding: 0.2em;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  background-color: transparent;
+  /* ... other body styles */
+}
+
+/* Content Styling */
+.content {
+  width: 100%;
+  height: 700px;  
+  margin: 20px 0; /* Adjust top and bottom margins as needed */
+  padding: 50px; /* Adjust padding as needed */
+}
+
+/* Header Styling */
+header {
+  width: 100%; /* Ensure full width */
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: #b393d3;
+  border: 3px #b393d3;
+}
+
+header h1, h1 {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  color: #b393d3;
+}
+
+header .date, header p.date {
+  color: #b393d3;
+  display: block;
+  visibility: visible;
+}
+
+/* Section Styling */
+.section {
+  background-color: #EAEAEA;
+  transition: all 0.3s ease-out;
+}
+
+.section-title {
+  background-color: inherit;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+/* Summary Styling */
+summary {
+  font-size: 16px; /* Example size - adjust as needed */
+}
+
+/* Title Styling */
+.title {
+  position: relative;
+  top: 0; /* Place at the top edge of the screen */
+  left: 50%; /* Position at the horizontal center */
+  transform: translateX(-50%); /* Center horizontally based on its width */
+  background-color: #ffffff;
+  padding: 5px;
+  z-index: 100;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* Container Styling */
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 95%; /* Increase width */
+  margin: auto;
+}
+
+/* Box Styling */
+.blackbox, .iconbox, .analysisbox, .spacebox {
+  padding: 1em;
+  margin: auto;
+  font-family: Verdana;
+  font-size: 14px;
+}
+
+.blackbox {
+  background: lavender;
+  color: black;
+  border: 4px solid SlateGray;
+  border-radius: 10px;
+}
+
+.iconbox, .analysisbox {
+  display: flex;
+  justify-content: space-evenly;  
+}
+
+.analysisbox {
+  padding: 2em 0; /* Add padding at the top and bottom */
+  background: white;
+  border: 4px solid DarkSeaGreen;
+  border-radius: 10px;
+}
+
+.spacebox {
+  background: #f0fff0;
+  text-align: center;
+}
+
+/* Image Styling */
+.logolcr img {
+  width: 85%;  /* Adjust as necessary to increase width */
+  height: 250px;
+  display: flex;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.figure {
+  text-align: center;
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: center; /* Center the items horizontally */
+  flex-wrap: wrap; /* Allow wrapping to the next line if necessary */
+  width: 100%;
+  max-width: 900px; /* Optional: set a maximum width */
+  margin: 0 auto;
+}
+
+.bs-collapse-button {
+  margin: 5px; /* Add some spacing between images */
+  flex: 0 1 auto; /* Allow items to shrink and grow as needed */
+}
+
+.bs-collapse-button img {
+  width: 100%;
+  max-width: 150px; /* Set the maximum width for the images */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.collapse b {
+  font-size: 10px; /* Smaller font size */
+}
+
+/* Icon Margin Styling */
+.bus-icon, .health-icon, .env-icon {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/* Image Styling for Graphs */
+.img.widgraph, .img.popimagehome, .img.ungraph {
+  border-radius: 50%;
+  width: 100%;
+}
+
+/* Subnav Styling */
+.london__subnav {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.london__subnav .navbar-item {
+  padding: 0.5rem 1rem;
+}
+
+.london__subnav .navbar-item a {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.london__subnav .navbar-item a:hover {
+  color: #000;
+}
+
+.london__subnav .navbar-item.is-active a {
+  color: #000;
+  font-weight: 700;
+}
+
+.wide-image {
+  width: 800px; /* Replace with your desired width */
+}

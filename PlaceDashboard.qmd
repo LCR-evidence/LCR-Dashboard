@@ -1,0 +1,30 @@
+---
+title: "Place"
+author: "Sawyer Phinney"
+date: last-modified
+date-format: "DD/MM/YYYY"
+format: 
+  html:
+    grid:
+      sidebar-width: 200px
+      body-width: 1000px
+      margin-width: 200px
+      gutter-width: 1.5rem
+    code-fold: true
+    toc: true
+    toc-location: left
+    number-sections: true
+    theme: flatly
+    highlight-style: tango
+    fontfamily: "Arial"
+    fontsize: 12pt
+    css: style.css
+editor: visual
+---
+
+::: logo 
+![](LCR_map.jpg)
+
+:::
+
+# Deprivation

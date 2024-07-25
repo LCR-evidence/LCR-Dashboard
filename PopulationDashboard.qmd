@@ -1,0 +1,618 @@
+---
+title: "Population"
+author: "Sawyer Phinney"
+date: last-modified
+date-format: "DD/MM/YYYY"
+format: 
+  html:
+    code-fold: true
+    toc: true
+    toc-location: left
+    number-sections: true
+    theme: flatly
+    highlight-style: tango
+    fontfamily: "Arial"
+    fontsize: 12pt
+    css: style.css
+editor: visual
+---
+
+```{r include = FALSE}
+## Dependencies
+
+#| warning: false
+#| message: false
+# data manipulation
+library(tidyverse)
+# plot design / placement
+library(patchwork)
+library(ggfortify)
+# time series modelling
+library(forecast)
+library(tseries)
+library(dplyr)
+library(sf)
+library(readr)
+library(readxl)
+library(scales)
+library(DataCombine)
+library(data.table)
+library(plyr)
+library(collapse)
+library(stats)
+library(ggplot2)
+library(plotly)
+library(fontawesome)
+library(htmltools)
+library(httr)
+library(lubridate)
+library(readr)
+library(base)
+library(kableExtra)
+
+        
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+# Create a function to generate the arrow icon
+generate_arrow_icon <- function(Percent_Increase) {
+  if (Percent_Increase > 0) {
+    icon = fa_i("circle-arrow-up", color="#008000", class="fa-1x text-success")
+  } else {
+    icon = fa_i("circle-arrow-down", color="#FF0000", class="fa-1x text-danger")
+  }
+  html_icon = htmltools::tagList(icon)
+  return(html_icon)
+}
+
+```
+
+::: logo
+![](LCR_map.jpg)
+:::
+
+<br>
+
+# Population Size
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+Total_Pop <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=1853882372&gender=0&c_age=200&measures=20100&select=date_name,geography_name,obs_value")
+
+
+
+# Calculate total population in 2023
+PopCount <- subset(Total_Pop, DATE_NAME == "2022")
+
+# Calculate the maximum OBS_VALUE 
+pop_value <- round(PopCount$OBS_VALUE)
+pop_value1 <- sum(PopCount$OBS_VALUE)
+
+# Convert to a whole number and avoid scientific notation
+pop_value <- format(pop_value, scientific = FALSE, big.mark = ",")
+
+
+
+##calculate percent change
+PopCountP <- subset(Total_Pop, DATE_NAME == 2021)
+PopCountF <- sum(PopCountP$OBS_VALUE)
+
+
+change_pop <- (pop_value1-PopCountF)/PopCountF
+
+Percent_Increase <- percent(change_pop, accuracy = 0.1)
+
+# Generate the arrow icon
+html_icon = generate_arrow_icon(Percent_Increase)
+
+
+# Convert DATE_NAME to factor and set levels in desired order
+Total_Pop$DATE_NAME <- factor(Total_Pop$DATE_NAME, levels = unique(Total_Pop$DATE_NAME))
+
+
+
+# Plot population
+plot_ly(Total_Pop, x = ~DATE_NAME, y = ~OBS_VALUE, type = "scatter", mode = "lines", line = list(color = "lightblue", width = 5)) %>%
+  layout(
+    xaxis = list(
+      title = "",
+      showgrid = FALSE,
+      tickfont = list(size = 12)
+    ),
+    yaxis = list(
+      title = "",
+      showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,  # Set the width of the gridlines
+      tickfont = list(size = 12)
+    ),
+    title = "Population in Liverpool City Region, 2002 to 2022",
+    showlegend = FALSE,
+    autosize = TRUE,
+    margin = list(l = 60, r = 60, t = 60, b = 60),
+    width = 500,
+    height = 400
+  )
+
+```
+
+```{r calculate, include=FALSE}
+
+
+# Calculate Percent Change of all LEPs
+
+Pop_LEP <-read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=1853882376,1853882369,1853882372,1853882378,1853882379,1853882370,1853882374,1853882375,1853882371,1853882377&date=latestMINUS1-latest&gender=0&c_age=200&measures=20100&select=date_name,geography_name,obs_value")
+
+# Rename the columns
+colnames(Pop_LEP) <- c("DATE_NAME", "GEOGRAPHY_NAME", "OBS_VALUE")
+
+# Convert OBS_VALUE to numeric
+Pop_LEP$OBS_VALUE <- as.numeric(Pop_LEP$OBS_VALUE)
+
+# Convert OBS_VALUE to numeric
+Pop_LEP$DATE_NAME <- as.numeric(Pop_LEP$DATE_NAME)
+
+pop <- Pop_LEP %>% arrange(GEOGRAPHY_NAME)
+  
+pop <- pop %>% group_by(DATE_NAME) %>% mutate(Growth = (OBS_VALUE - lag(OBS_VALUE))/lag(OBS_VALUE)) 
+
+# delete rows with 2021 value
+clean_data <- pop[-c(1, 3, 5, 7, 9, 11, 13, 15, 17, 19), ]
+
+clean_data %>%
+  arrange(desc(Growth))
+
+
+# From looking at data, we know liverpool is 7 out of 10 in terms of highest growth. 
+
+
+
+#Calculating GENDER percentage///////
+demo <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2132_1.data.csv?date=latest&geography=1774190598,1774190666,1774190667,1774190669,1774190668,1774190670&c2021_eth_20=0&c2021_age_6=1...5&c_sex=1,2&measures=20100&select=c2021_age_6_name,c_sex_name,obs_value")
+
+# Rename the columns
+colnames(demo) <- c("C2021_AGE_6_NAME", "C_SEX_NAME", "OBS_VALUE")
+
+# Convert OBS_VALUE to numeric
+demo$OBS_VALUE <- as.numeric(demo$OBS_VALUE)
+
+# Delete columns so that only show gender
+Gender <- demo[,c("C_SEX_NAME", "OBS_VALUE")]
+
+
+
+# Calculate total gender
+TotalGender <- sum(Gender$OBS_VALUE)
+
+
+# Filter data for males
+males_d <- subset(Gender, C_SEX_NAME == "Male")
+
+
+# Calculate the total number of Males and percentage
+TotalMales <- round(sum(males_d$OBS_VALUE, na.rm = TRUE))
+
+MalesProportion <- (TotalMales/TotalGender)
+
+MalesProportion <- percent(MalesProportion, accuracy = 0.1)
+
+
+# Filter data for females
+females_d <- subset(Gender, C_SEX_NAME == "Female")
+
+
+# Calculate the total number of Females and percentage
+TotalFemales <- round(sum(females_d$OBS_VALUE, na.rm = TRUE))
+
+FemalesProportion <- (TotalFemales/TotalGender)
+
+FemalesProportion <- percent(FemalesProportion, accuracy = 0.1)
+
+
+
+## Now for AGE ////////
+# Delete columns so that only show gender
+Ages <- demo[,c("C2021_AGE_6_NAME", "OBS_VALUE")]
+
+# Calculate total gender
+TotalAge <- sum(Ages$OBS_VALUE)
+
+
+Twenty <- subset(Ages, C2021_AGE_6_NAME == "Aged 24 years and under")
+Twenty1 <- sum(Twenty$OBS_VALUE)  
+
+Thirty <- subset(Ages, C2021_AGE_6_NAME == "Aged 25 to 34 years")
+Thirty1 <- sum(Thirty$OBS_VALUE)
+    
+Fourty <- subset(Ages, C2021_AGE_6_NAME == "Aged 35 to 49 years")
+Fourty1 <- sum(Fourty$OBS_VALUE)
+
+Fifty <- subset(Ages, C2021_AGE_6_NAME == "Aged 50 to 64 years")
+Fifty1 <- sum(Fifty$OBS_VALUE)
+
+Sixty <- subset(Ages, C2021_AGE_6_NAME == "Aged 65 years and over")
+Sixty1 <- sum(Sixty$OBS_VALUE)
+
+
+#Twenties
+TwentyProportion <- (Twenty1/TotalAge)
+
+TwentyProportion <- percent(TwentyProportion, accuracy = 0.1)
+
+#Thirties
+ThirtyProportion <- (Thirty1/TotalAge)
+
+ThirtyProportion <- percent(ThirtyProportion, accuracy = 0.1)
+
+#Fourties
+FourtyProportion <- (Fourty1/TotalAge)
+
+FourtyProportion <- percent(FourtyProportion, accuracy = 0.1)
+
+#Fifties
+FiftyProportion <- (Fifty1/TotalAge)
+
+FiftyProportion <- percent(FiftyProportion, accuracy = 0.1)
+
+#Sixties
+SixtyProportion <- (Sixty1/TotalAge)
+
+SixtyProportion <- percent(SixtyProportion, accuracy = 0.1)
+
+
+
+
+
+
+```
+
+<br> <br>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+# This below produces a table of population growth across LEPs
+
+# Delete columns so that only geogprahy name and growth show
+new1_data <- clean_data[,c("GEOGRAPHY_NAME", "Growth")]
+
+
+new1_data$Growth <- percent(new1_data$Growth, accuracy = 0.1)
+
+new1_data <- new1_data %>%
+  arrange(desc(Growth))
+
+# rename first column
+names(new1_data)[1] <- "LEPs in England"
+
+# rename second column
+names(new1_data)[2] <- "Population Change from Previous Year"
+
+
+new1_data %>% kbl() %>% kable_styling(
+  full_width = F) %>%
+  kable_material(c("striped", "hover"))
+
+
+```
+
+<br>
+
+<br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+As of 2022, there was estimated to be `r pop_value` people residing in Liverpool City Region. This represents a **`r Percent_Increase`** `r html_icon` - change from the previous year.
+
+Liverpool City Regions ranks 7th out of 10 in terms of highest population growth across LEPs
+:::
+
+<br> <br> <br>
+
+# Age and Gender
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+# Convert OBS_VALUE to numeric
+demo$OBS_VALUE <- as.numeric(demo$OBS_VALUE)
+
+demo %>% 
+  mutate(OBS_VALUE = ifelse(test = C_SEX_NAME == "Male", yes = -OBS_VALUE, no = OBS_VALUE)) %>%
+  mutate(abs_pop = abs(OBS_VALUE)) %>%
+  plot_ly(x= ~OBS_VALUE, y=~C2021_AGE_6_NAME, color=~C_SEX_NAME) %>% 
+  add_bars(orientation = 'h', hoverinfo = 'text', text = ~abs_pop) %>%
+
+  layout(bargap = 0.1, barmode = 'overlay',
+         xaxis = list(tickmode = 'array', tickvals = c(-80000, -60000, -40000, -20000, 0, 20000, 40000, 60000, 80000),
+                      ticktext = c('80000', '60000', '40000', '20000', '0', '20000', '40000', '60000', '80000'), title = "",
+
+      showgrid = FALSE,
+      tickfont = list(size = 12)),
+    yaxis = list(
+      title = "",
+      showgrid = TRUE,  # Display horizontal gridlines
+      gridcolor = "lightgray",  # Set the color of the gridlines
+      gridwidth = 1,  # Set the width of the gridlines
+      tickfont = list(size = 12)
+    ),
+     showlegend = FALSE,
+        autosize = TRUE,
+        title = list(text = "", font = list(color = "darkgrey", family = "Arial"),
+        margin = list(l = 80, r = 80, t = 80, b = 80),
+        width = 800,
+        height = 500
+  ))
+
+```
+
+<br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+Latest 2021 Census data shows that Liverpool City Region's population is `r MalesProportion` males and `r FemalesProportion` females
+
+By age groups, there were `r TwentyProportion` under 24,`r ThirtyProportion` between 25 and 34, `r FourtyProportion` between 35 and 49, `r FiftyProportion` between 50 and 64, and`r SixtyProportion` over the age of 65.
+:::
+
+<br> <br> <br>
+
+# Population by Ethnicity
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+pop_eth <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2041_1.data.csv?date=latest&geography=1925185554&c2021_eth_20=1001...1005&measures=20301&select=c2021_eth_20_name,obs_value")
+
+
+# Rename the columns
+colnames(pop_eth) <- c("C2021_ETH_20_NAME", "OBS_VALUE")
+  
+colors <- c('rgb(91,242,141)', 'rgb(128,133,133)', 'rgb(144,103,167)', 'rgb(171,104,87)', 'rgb(114,147,203)')
+
+# Convert OBS_VALUE to numeric
+pop_eth$OBS_VALUE <- as.numeric(pop_eth$OBS_VALUE)
+
+e <- plot_ly(pop_eth, labels = ~C2021_ETH_20_NAME, values = ~OBS_VALUE, type = "pie",  marker = list(colors = colors, line = list(color = '#FFFFFF', width = 1))) 
+  
+e <- e %>% layout(
+  xaxis = list(
+    showgrid = FALSE,
+    zeroline = FALSE,
+    tickfont = list(size = 11)
+  ),
+  
+  yaxis = list(
+    showgrid = FALSE,
+    gridcolor = "lightgray",
+    zeroline = FALSE,
+    tickfont = list(size = 11)
+  ), 
+
+  title = "",
+  autosize = TRUE,
+  margin = list(l = 20, r = 20, t = 20, b = 20),  # Reduced margins
+  width = 600,  # Increased width
+  height = 500  # Increased height
+)
+
+e
+
+
+
+
+```
+
+<br><br>
+
+# Population by Country of Birth
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+cob <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2024_1.data.csv?date=latest&geography=1925185554&c2021_cob_12=1,1002,7...11&measures=20301&select=c2021_cob_12_name,obs_value")
+
+# Rename the columns
+colnames(cob) <- c("C2021_COB_12_NAME", "OBS_VALUE")
+
+cob <- cob %>%
+  mutate(C2021_COB_12_NAME = replace(C2021_COB_12_NAME, C2021_COB_12_NAME == "Europe: EU countries", "Europe"))
+
+
+cob <- cob %>%
+  mutate(C2021_COB_12_NAME = replace(C2021_COB_12_NAME, 
+                                   C2021_COB_12_NAME == "Europe: United Kingdom", 
+                                   "UK"))
+
+cob <- cob %>%
+  mutate(C2021_COB_12_NAME = replace(C2021_COB_12_NAME, C2021_COB_12_NAME == "Antarctica and Oceania (including Australasia) and Other", "Antarctica and Other"))
+
+cob <- cob %>%
+  mutate(C2021_COB_12_NAME = replace(C2021_COB_12_NAME, C2021_COB_12_NAME == "The Americas and the Caribbean", "Americas and Caribbean"))
+
+
+
+
+
+  
+colors <- c('rgb(91,242,141)', 'rgb(128,133,133)', 'rgb(144,103,167)', 'rgb(171,104,87)', 'rgb(114,147,203)')
+
+# Convert OBS_VALUE to numeric
+cob$OBS_VALUE <- as.numeric(cob$OBS_VALUE)
+
+
+# pie graph
+
+g <- plot_ly(cob, labels = ~C2021_COB_12_NAME, values = ~OBS_VALUE, type = "pie",
+        insidetextfont = list(color = '#FFFFFF'),
+        hoverinfo = 'text',
+         marker = list(colors = colors, line = list(color = '#FFFFFF', width = 1)), showlegend = TRUE)
+
+g <- g %>% layout(xaxis = list(
+      showgrid = FALSE,
+      zeroline = FALSE,
+      tickfont = list(size = 11)),
+  
+  
+     yaxis = list(
+      showgrid = FALSE,
+      gridcolor = "lightgray",
+      zeroline = FALSE,
+      autosize = TRUE,
+      tickfont = list(size = 11)), 
+        
+       title = "",
+         autosize = TRUE,
+         margin = list(l = 60, r = 60, t = 60, b = 60),
+         width = 500, height = 400)
+
+
+
+
+g
+
+
+
+```
+
+<br><br>
+
+# Population by Sexual Orientation
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+
+lgbt <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2060_1.data.csv?date=latest&geography=1925185554,2092957699&c2021_sexor_6=1...4&measures=20301&select=geography_name,c2021_sexor_6_name,obs_value")
+
+# Rename the columns
+colnames(lgbt) <- c("GEOGRAPHY_NAME", "C2021_SEXOR_6_NAME", "OBS_VALUE")
+
+# Convert OBS_VALUE to numeric
+lgbt$OBS_VALUE <- as.numeric(lgbt$OBS_VALUE)
+
+
+d <- plot_ly(lgbt, x= ~GEOGRAPHY_NAME, y= ~OBS_VALUE, color = ~C2021_SEXOR_6_NAME, type = 'bar')%>%
+
+
+ layout(yaxis = list(
+      range = c(0,20),
+      title = "Proportion (%) of Population"),
+      barmode = 'stack',
+ 
+xaxis = list(
+      title = "",
+      showgrid = FALSE,
+      tickfont = list(size = 12)
+    ))
+d
+
+
+```
+
+<br><br>
+
+# Household Deprivation
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+Deprivation1 <- read_csv("https://www.nomisweb.co.uk/api/v01/dataset/NM_2031_1.data.csv?date=latest&geography=1925185554,2092957699&c2021_dep_6=1...5&measures=20301&select=geography_name,c2021_dep_6_name,obs_value")
+
+
+Deprivation1$OBS_VALUE <- as.numeric(Deprivation1$OBS_VALUE)
+
+Deprivation1$C2021_DEP_6_NAME <- as.character(Deprivation1$C2021_DEP_6_NAME)
+
+#Deprivation in two dimensions
+LCRDEP <- subset(Deprivation1, GEOGRAPHY_NAME == "Liverpool City Region")
+LCRDEP2 <- subset(LCRDEP, C2021_DEP_6_NAME == 	
+"Household is deprived in two dimensions")
+LCRDEP2F <- sum(LCRDEP2$OBS_VALUE)
+LCRDEP2T <- format(LCRDEP2F, scientific = FALSE, big.mark = ",")
+
+
+ENGDEP <- subset(Deprivation1, GEOGRAPHY_NAME == "England")
+ENGDEP2 <- subset(ENGDEP, C2021_DEP_6_NAME == 	
+"Household is deprived in two dimensions")
+ENGDEP2F <- sum(ENGDEP2$OBS_VALUE)
+ENGDEP2T <- format(ENGDEP2F, scientific = FALSE, big.mark = ",")
+
+
+Diff2 <- (LCRDEP2F-ENGDEP2F)
+
+#Deprivation in three dimensions
+
+LCRDEP3 <- subset(LCRDEP, C2021_DEP_6_NAME == 	
+"Household is deprived in three dimensions")
+LCRDEP3F <- sum(LCRDEP3$OBS_VALUE)
+LCRDEP3T <- format(LCRDEP3F, scientific = FALSE, big.mark = ",")
+
+
+ENGDEP3 <- subset(ENGDEP, C2021_DEP_6_NAME == 	
+"Household is deprived in three dimensions")
+ENGDEP3F <- sum(ENGDEP3$OBS_VALUE)
+ENGDEP3T <- format(ENGDEP3F, scientific = FALSE, big.mark = ",")
+
+
+Diff3 <- (LCRDEP3F-ENGDEP3F)
+
+
+
+
+
+
+#take out four dimensions due to low count
+Deprivation2 <- Deprivation1 %>%
+filter(C2021_DEP_6_NAME != "Household is deprived in four dimensions")%>%
+arrange(C2021_DEP_6_NAME)%>%
+arrange(desc(OBS_VALUE))
+
+
+dep <- plot_ly(Deprivation2, x= ~OBS_VALUE, y= ~C2021_DEP_6_NAME, color = ~GEOGRAPHY_NAME, type = 'bar', orientation = 'h', text = ~OBS_VALUE)%>%
+
+layout(yaxis = list(
+title = "Proportion (%) of Population",
+showticklabels = TRUE),
+xaxis = list(
+title = "", showticklabels = TRUE, tickfont = list(family='Arial', color="darkgrey", size=14),
+showgrid = FALSE),  # Hide vertical gridlines
+showlegend = TRUE,
+autosize = TRUE,
+title = list(text = "<b>Household Deprivation</b>", font = list(color = "darkgrey", family = "Arial"),
+margin = list(l = 80, r = 80, t = 80, b = 80),
+width = 400,
+height = 400
+))
+
+
+dep
+
+
+
+  
+
+
+```
+
+<br>
+
+::: {.blackbox data-latex=""}
+::: {.data-latex=""}
+**Key Trends**
+:::
+
+Census 2021 data shows deprivation across four dimensions: employment, education, health and housing.
+
+In Liverpool City Region, **`r LCRDEP2T`%** of residents are deprived in two dimensions. This is **`r Diff2`** ppts above the national average.
+
+In addition, **`r LCRDEP3T`%** of residents are deprived in three dimensions (**`r Diff3`** ppts above the national average).
+:::
+
+<br> <br> <br>![](ERI.png){.wide-image}

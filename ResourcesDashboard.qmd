@@ -1,0 +1,142 @@
+---
+title: "Resources and Blogs"
+author: "Sawyer Phinney"
+date: last-modified
+date-format: "DD/MM/YYYY"
+format:
+  html:
+    grid:
+      sidebar-width: 200px
+      body-width: 1000px
+      margin-width: 200px
+      gutter-width: 1.5rem
+    code-fold: true
+    toc: true
+    toc-location: left
+    number-sections: true
+    theme: flatly
+    highlight-style: tango
+    fontfamily: "Arial"
+    fontsize: 12pt
+    css: style.css
+editor: visual
+---
+
+```{r include = FALSE}
+## Dependencies
+
+#| warning: false
+#| message: false
+# data manipulation
+library(tidyverse)
+# plot design / placement
+library(patchwork)
+library(ggfortify)
+# time series modelling
+library(forecast)
+library(tseries)
+library(dplyr)
+library(sf)
+library(readr)
+library(readxl)
+library(scales)
+library(DataCombine)
+library(data.table)
+library(plyr)
+library(collapse)
+library(stats)
+library(ggplot2)
+library(plotly)
+library(fontawesome)
+library(htmltools)
+library(httr)
+library(lubridate)
+library(readr)
+library(base)
+library(kableExtra)
+
+        
+
+```
+
+::: logo
+![](LCR_map.jpg)
+:::
+
+<br>
+
+# Further Research
+
+<br>
+
+<summary>Productivity Study</summary>
+
+<iframe src="C:/Users/phinne_s/OneDrive - Merseytravel/R_Studio_Code/LCR/LCRprod2023.pdf" width="800" height="500">
+
+</iframe>
+
+</details>
+
+<br> <br> <br>
+
+<details>
+
+<summary>Quarterly Economic Briefings</summary>
+
+<iframe src="C:/Users/phinne_s/OneDrive - Merseytravel/R_Studio_Code/LCR/QuartEconJan24.pdf" width="800" height="500">
+
+</iframe>
+
+</details>
+
+<br> <br> <br>
+
+<details>
+
+<summary>Labour Market Updates</summary>
+
+<iframe src="C:/Users/phinne_s/OneDrive - Merseytravel/R_Studio_Code/LCR/LabourMarketNov22.pdf" width="800" height="500">
+
+</iframe>
+
+</details>
+
+<br> <br> <br> <br>
+
+<header>
+
+<h1 class="header-2">
+
+Blogs
+
+</h1>
+
+</header>
+
+<br>
+
+## *Cost of Living Impacts in Liverpool City Region*
+
+<b>Written by: Sawyer Phinney, Senior Analyst </b> <br> <br>
+
+The cost of living crisis has cast a long shadow over the UK, and the Liverpool City Region is no exception. From rising energy bills to soaring food prices, the financial strain on households and businesses is palpable. This blog explores the multifaceted impacts of this crisis on the region and how it is changing the lives of its residents.
+
+#### Rising Tide of Poverty and Deprivation
+
+The most immediate consequence of the crisis is an escalation in poverty levels. Many families within the region were already struggling, and the relentless price hikes have pushed them further toward the brink. Food banks are witnessing an unprecedented surge in demand, and heartbreaking reports of parents skipping meals to feed their children are becoming increasingly commonplace. The crisis has further exposed the stark inequalities that have long defined parts of the Liverpool City Region.
+
+Housing costs – both rental and mortgage payments – have been climbing, placing added pressure on household budgets. With energy costs also spiraling upwards, many are torn between the impossible choice of heating their homes or putting food on the table. This harsh reality is leading to an increase in evictions and homelessness. The housing crisis in the region has now reached a breaking point, and its effects will likely be felt for years to come.
+
+#### The Struggles of Local Businesses
+
+It's not only individuals who feel the strain; local businesses are also grappling with the crisis. The combined burden of soaring operational costs and reduced consumer spending is proving unsustainable for many. Small businesses, the backbone of the region's economy, are increasingly facing the grim prospect of closure. The impact on jobs and the overall vitality of the Liverpool City Region could be severe.
+
+#### Seeking Solutions, Finding Hope
+
+In the face of such challenges, the Liverpool City Region isn't sitting idle. Various initiatives have been launched to mitigate the crisis' effects. Mayor Steve Rotheram's support schemes, including Mind and Money, offer some relief to the most financially vulnerable. Community organizations, charities, and food banks are working tirelessly to provide lifelines.
+
+Yet, individual efforts and local initiatives alone won't solve the crisis entirely. It calls for broader, systemic changes at the national policy level. Addressing these root causes is key to fostering sustainable recovery and long-term resilience.
+
+The cost of living crisis is a harsh reality, but it need not define the future of the Liverpool City Region. By working together, advocating for policy changes, and supporting the most vulnerable, the region can emerge from this period stronger and more equitable.
+
+![](ERI.png){.wide-image}
